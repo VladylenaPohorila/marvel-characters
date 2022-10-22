@@ -1,8 +1,11 @@
 import React from 'react';
-import { Loader } from './app/loader/loader';
+import { NativeRouter} from 'react-router-native';
+import { RoutersApp } from './app/routers/routersApp';
 
 export default function App() {
   return (
-    <Loader/>
+    <NativeRouter>
+      <RoutersApp/>
+    </NativeRouter>
   );
 }

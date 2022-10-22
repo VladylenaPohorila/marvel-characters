@@ -1,7 +1,0 @@
-import { StyleSheet } from 'react-native';
-
-export const styles = StyleSheet.create({
-    text: {
-        marginBottom: 16, fontSize: '20px'
-    }
-});
