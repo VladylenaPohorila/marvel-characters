@@ -1,19 +1,25 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import { Link } from 'react-router-native';
 import { styles } from './styles';
 
 export const Home = () => {
-	const { text, link } = styles;
+	const { text, link, backImage, content } = styles;
 
 	return (
-		<View>
-			<Text style={text}>
-				Welcom, to home page
-			</Text>
-			<Link to='/characters'>
-				<Text style={link}>Go to all characters</Text>
-			</Link>
+		<View style={{ flex: 1 }}>
+			<ImageBackground source={require('../../../assets/marvel.png')}
+				style={backImage}
+				resizeMode='cover'>
+				<View style={content}>
+					<Text style={text}>
+						Welcome, to the Marvel world of characters
+					</Text>
+					<Link to='/characters'>
+						<Text style={link}>Go to all characters</Text>
+					</Link>
+				</View>
+			</ImageBackground>
 		</View>
 	)
 };

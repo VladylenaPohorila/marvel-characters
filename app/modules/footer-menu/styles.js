@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	textColor: {
+		fontSize: 18,
 		color: 'white'
 	}
 });
