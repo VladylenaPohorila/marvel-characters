@@ -27,14 +27,6 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 8
     },
-    containerList: {
-        marginBottom: 8,
-    },
-    listTitle: {
-        fontSize: 20,
-        textAlign: 'center',
-        color: 'white'
-    },
     containerModified: {
         width: '100%',
         alignItems: 'flex-end'

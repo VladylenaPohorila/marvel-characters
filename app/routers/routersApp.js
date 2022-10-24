@@ -2,9 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-native';
 import { Loader } from '../modules/loader/loader';
 import { Home } from '../modules/home/homePage';
-import { Characters } from '../modules/characters/characters';
-import { CharactersList } from '../modules/characters/components/characters-list';
-import { Character } from '../modules/characters/components';
+import { Characters, CharactersList, Character } from '../modules/characters';
 
 export const RoutersApp = () => {
     return (
@@ -13,7 +11,7 @@ export const RoutersApp = () => {
                 <Route index element={<Home />} />
                 <Route path='characters' element={<Characters />} >
                     <Route index element={<CharactersList />} />
-                    <Route path=':characterId' element={<Character />} />
+                    <Route path=':id' element={<Character />} />
                 </Route>
             </Route>
         </Routes>

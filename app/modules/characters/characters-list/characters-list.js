@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity } from 'react-native';
 import { useNavigate } from 'react-router';
 import { CharactersContext } from '../../../context/useCharactersContext';
 import { Loading } from '../../components';
-import { styles } from '../styles';
+import { styles } from './styles';
 
 export const CharactersList = () => {
     const { link, img, text } = styles;
