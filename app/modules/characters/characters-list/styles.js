@@ -2,6 +2,18 @@ import { StyleSheet } from 'react-native';
 import { marginNew } from '../../../utilits/padding-marging';
 
 export const styles = StyleSheet.create({
+    header: {
+        flex: 0,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+        width: '100%',
+        backgroundColor: 'orange'
+    },
+    headerText: {
+        fontSize: 20,
+        color: 'white'
+    },
     link: {
         flex: 1,
         alignItems: 'center',

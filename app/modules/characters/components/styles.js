@@ -3,8 +3,8 @@ import { marginNew } from '../../../utilits/padding-marging';
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        ...marginNew(0, 6)
+        flex: 0,
+        ...marginNew(0, 6, 80)
     },
     itemName: {
         ...marginNew(8, 0),
@@ -34,6 +34,12 @@ export const styles = StyleSheet.create({
     colorText: {
         fontSize: 18,
         color: 'white'
+    },
+    header: {
+        flex: 0,
+        padding: 10,
+        width: '100%',
+        maxHeight: 60,
+        backgroundColor: 'orange'
     }
-
 })
