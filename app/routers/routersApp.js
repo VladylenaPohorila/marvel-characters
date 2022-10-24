@@ -11,7 +11,7 @@ export const RoutersApp = () => {
             <Route path='/' element={<Loader />}>
                 <Route index element={<Home />} />
                 <Route path='characters' element={<Characters />} />
-                <Route path='character/:id' element={<Character />} />
+                <Route path='character/:characterId' element={<Character />} />
             </Route>
         </Routes>
     )

@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Image, View, Text, ScrollView } from 'react-native';
-import { BaseUrl } from '../../utilits/getData';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { CharactersContext } from '../../context/useCharactersContext';
 import { Loading } from '../components';
 
 export const Characters = () => {
-    const [characters, setCharacters] = useState({});
-    useEffect(() => {
-        const getDate = async () => {
-            const res = await fetch(BaseUrl);
-            const data = await res.json();
-            setCharacters(data.data);
-        }
-        getDate();
-    }, [BaseUrl]);
+    const { link, img, text } = styles;
+    const navigate = useNavigate();
+    const characters = useContext(CharactersContext);
+    const goToItem = (id) => navigate(`/character/${id.toString()}`);
 
     return (
         !characters || !Object.keys(characters).length ?
             <Loading /> :
-            <ScrollView>
-                {characters && characters.results.map(character => (
-                    <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row', marginTop: 6, marginBottom: 6 }} key={character.id}>
+            <View>
+                {characters && characters?.results.map(character => (
+                    <TouchableOpacity
+                        style={link}
+                        key={character.id}
+                        id={character.id}
+                        onPress={() => goToItem(character.id)}>
                         <Image source={{
                             uri: `${character.thumbnail.path}.${character.thumbnail.extension}`
                         }}
-                            style={{ width: 50, height: 50 }} />
-                        <Text style={{ marginLeft: 6, fontSize: 18, color: 'white' }}>{character.name}</Text>
-                    </View>
+                            style={img} />
+                        <Text style={text}>{character.name}</Text>
+                    </TouchableOpacity>
                 ))}
-            </ScrollView>
+            </View>
     )
 }

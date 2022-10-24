@@ -1,18 +1,20 @@
 import { StyleSheet } from 'react-native';
+import { marginNew } from '../../utilits/padding-marging';
 
 export const styles = StyleSheet.create({
-    wrapp: {
-        flex: 1
-    },
-    scroll: {
-        marginTop: 6, 
-        marginBottom: 6
-    },
     link: {
-        flex: 0, 
-        margin: 6
+        flex: 1,
+        alignItems: 'center',
+        flexDirection: 'row',
+        ...marginNew(6, 0)
     },
-    linkText: {
+    img: {
+        width: 50,
+        height: 50
+    },
+    text: {
+        marginLeft: 6,
+        fontSize: 18,
         color: 'white'
     }
 })
