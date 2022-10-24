@@ -12,6 +12,11 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
     },
+    wrapperImg: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     itemImg: {
         width: 300,
         height: 300,

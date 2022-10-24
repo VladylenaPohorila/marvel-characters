@@ -15,11 +15,9 @@ export const Loader = () => {
 		<View style={container}>
 			<Header />
 			<View style={wrapper}>
-				<ScrollView>
-					<CharactersContextProvider>
-						<Outlet />
-					</CharactersContextProvider>
-				</ScrollView>
+				<CharactersContextProvider>
+					<Outlet />
+				</CharactersContextProvider>
 			</View>
 			<FooterMenu />
 			<StatusBar style='auto' />

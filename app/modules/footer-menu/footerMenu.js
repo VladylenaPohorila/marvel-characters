@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { Link } from 'react-router-native';
+import { View, Text } from 'react-native';
 import { styles } from './styles';
 
 export const FooterMenu = () => {
-	const { menu, textColor } = styles;
+	const { menu, textColor, active } = styles;
 	return (
 		<View style={menu}>
 			<Link to='/'>

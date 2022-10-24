@@ -1,28 +1,30 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, ScrollView } from 'react-native';
 import { CharactersContext } from '../../../context/useCharactersContext';
 import { Loading } from '../../components';
 import { ItemList } from './item-list';
 import { styles } from './styles';
 
 export const Character = () => {
-    const { container, itemName, itemImg, itemDescription, colorText, containerModified } = styles;
-    const { characterId } = useParams();
+    const { container, itemName, itemImg, itemDescription, colorText, containerModified, wrapperImg } = styles;
+    const { id: characterId } = useParams();
     const characters = useContext(CharactersContext);
     const character = characters && characters.results.filter(item => item.id === +characterId);
 
     return (
         (!character || !character.length ?
             <Loading /> :
-            <View
+            <ScrollView
                 style={container}>
                 <Text style={itemName}>
                     {character[0].name}
                 </Text>
-                <Image
-                    source={{ uri: `${character[0].thumbnail.path}.${character[0].thumbnail.extension}` }}
-                    style={itemImg} />
+                <View style={wrapperImg}>
+                    <Image
+                        source={{ uri: `${character[0].thumbnail.path}.${character[0].thumbnail.extension}` }}
+                        style={itemImg} />
+                </View>
                 {character[0].description &&
                     <Text style={itemDescription}>
                         {character[0].description}
@@ -44,7 +46,7 @@ export const Character = () => {
                         {`Modified: ${character[0].modified.slice(0, 10)}`}
                     </Text>
                 </View>
-            </View>
+            </ScrollView>
         )
     )
 }

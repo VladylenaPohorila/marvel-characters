@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
 	},
 	wrapper: {
 		flex: 1,
-		width: '100%'
+		width: '100%',
+
 	},
 	header: {
 		flex: 1,

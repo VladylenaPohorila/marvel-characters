@@ -14,5 +14,8 @@ export const styles = StyleSheet.create({
 	textColor: {
 		fontSize: 18,
 		color: 'white'
+	},
+	active: {
+		color: 'rgb(153, 0, 0)'
 	}
 });
