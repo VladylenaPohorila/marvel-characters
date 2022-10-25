@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-native';
 import { View, TextInput, Text, TouchableHighlight } from 'react-native';
-import { paddingNew } from '../../../../utilits/padding-marging';
+import { styles } from './styles';
 
 export const Search = () => {
+    const { searchWrapper, searchInput, searchText } = styles;
     const [name, setName] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const onSubmit = () => {
@@ -12,26 +13,15 @@ export const Search = () => {
     };
 
     return (
-        <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginLeft: 16
-        }}>
+        <View style={searchWrapper}>
             <TextInput
-                style={{
-                    flex: 2,
-                    ...paddingNew(0, 4),
-                    borderWidth: 1,
-                    borderColor: 'rgb(153, 0, 0)'
-                }}
+                style={searchInput}
                 placeholder='Name'
                 value={name}
                 type='text'
-                onChangeText={text => setName(text)} />
+                onChangeText={text => setName(text.trim())} />
             <TouchableHighlight onPress={() => onSubmit()}>
-                <Text>Search</Text>
+                <Text style={searchText}>Search</Text>
             </TouchableHighlight>
         </View>
     )
