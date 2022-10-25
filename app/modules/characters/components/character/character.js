@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { View, Image, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { Loading } from '../../components';
-import { ItemList } from './item-list';
-import { UrlCharacter } from '../../../utilits/getData';
+import { Loading } from '../../../components';
+import { ItemList } from '../item-list';
+import { UrlCharacter } from '../../../../utilits/getData';
 import { styles } from './styles';
 
 export const Character = () => {

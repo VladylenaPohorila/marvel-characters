@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Image, Text, TouchableOpacity, ScrollView, View } from 'react-native';
 import { useNavigate } from 'react-router';
-import { CharactersContext } from '../../../context/useCharactersContext';
-import { Loading } from '../../components';
-import { Search } from '../components/search/search';
-import { NoResults } from '../components/noResult/noResults';
+import { CharactersContext } from '../../../../context/useCharactersContext';
+import { Loading } from '../../../components/loading';
+import { Search } from '../search';
+import { NoResults } from '../noResult';
 import { styles } from './styles';
 
 export const CharactersList = () => {
