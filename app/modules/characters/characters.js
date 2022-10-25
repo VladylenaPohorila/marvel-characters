@@ -1,11 +1,16 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
+import { useSearchParams } from 'react-router-native';
 import { View } from 'react-native';
 import { CharactersContextProvider } from '../../context/useCharactersContext';
 
 export const Characters = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const nameStartsWithQuery = searchParams.get('nameStartsWith');
+    console.log(useLocation())
+
     return (
-        <CharactersContextProvider>
+        <CharactersContextProvider search={nameStartsWithQuery}>
             <View>
                 <Outlet />
             </View>
