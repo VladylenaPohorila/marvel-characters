@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-native';
+import { Link, useLocation } from 'react-router-native';
 import { View, Text } from 'react-native';
 import { styles } from './styles';
 
 export const FooterMenu = () => {
 	const { menu, textColor, active } = styles;
+	const { pathname } = useLocation();
+
 	return (
 		<View style={menu}>
 			<Link to='/'>
-				<Text style={textColor}>Home</Text>
+				<Text style={pathname === '/' ? active : textColor}>Home</Text>
 			</Link>
 			<Link to='/characters'>
-				<Text style={textColor}>Characters</Text>
+				<Text style={pathname === '/characters' ? active : textColor}>Characters</Text>
 			</Link>
 		</View>
 	)
