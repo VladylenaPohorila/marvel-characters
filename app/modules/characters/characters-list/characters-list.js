@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-native';
 import { CharactersContext } from '../../../context/useCharactersContext';
 import { Loading } from '../../components';
 import { Search } from '../components/search/search';
+import { NoResults } from '../components/noResult/noResults';
 import { styles } from './styles';
 
 export const CharactersList = () => {
@@ -13,8 +14,8 @@ export const CharactersList = () => {
     const characters = useContext(CharactersContext);
     const [searchParams, setSearchParams] = useSearchParams();
     const goToItem = (id) => navigate(`${id.toString()}`);
-    //const nameStartsWithQuery = searchParams.get('nameStartsWith');
-    console.log(searchParams)
+    const nameStartsWithQuery = searchParams.get('nameStartsWith');
+    //console.log(characters)
 
     return (
         <View style={{ padding: 10 }}>
@@ -28,21 +29,23 @@ export const CharactersList = () => {
             </View>
             {!characters || !Object.keys(characters).length ?
                 <Loading /> :
-                <ScrollView style={{ marginBottom: 90 }}>
-                    {characters && characters?.results.map(character => (
-                        <TouchableOpacity
-                            style={link}
-                            key={character.id}
-                            id={character.id}
-                            onPress={() => goToItem(character.id)}>
-                            <Image source={{
-                                uri: `${character.thumbnail.path}.${character.thumbnail.extension}`
-                            }}
-                                style={img} />
-                            <Text style={text}>{character.name}</Text>
-                        </TouchableOpacity>
-                    ))}
-                </ScrollView>
+                characters.total === 0 ?
+                    <NoResults text={nameStartsWithQuery} /> :
+                    <ScrollView style={{ marginBottom: 90 }}>
+                        {characters && characters.results.map(character => (
+                            <TouchableOpacity
+                                style={link}
+                                key={character.id}
+                                id={character.id}
+                                onPress={() => goToItem(character.id)}>
+                                <Image source={{
+                                    uri: `${character.thumbnail.path}.${character.thumbnail.extension}`
+                                }}
+                                    style={img} />
+                                <Text style={text}>{character.name}</Text>
+                            </TouchableOpacity>
+                        ))}
+                    </ScrollView>
             }
         </View>
     )
