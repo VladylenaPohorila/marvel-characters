@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-native';
+import React, { useState, useContext } from 'react';
 import { View, TextInput, Text, TouchableHighlight } from 'react-native';
+import { CharactersContext } from '../../../../context/useCharactersContext';
 import { styles } from './styles';
 
 export const Search = () => {
     const { searchWrapper, searchInput, searchText } = styles;
-    const [name, setName] = useState('');
-    const [searchParams, setSearchParams] = useSearchParams();
+    const { searchQuery, setSearchQuery } = useContext(CharactersContext);
+    const [name, setName] = useState(searchQuery);
     const onSubmit = () => {
-        setSearchParams({ nameStartsWith: name });
+        setSearchQuery(name);
         setName('');
     };
 

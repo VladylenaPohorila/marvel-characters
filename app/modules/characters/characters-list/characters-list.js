@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Image, Text, TouchableOpacity, ScrollView, View } from 'react-native';
 import { useNavigate } from 'react-router';
-import { useSearchParams } from 'react-router-native';
 import { CharactersContext } from '../../../context/useCharactersContext';
 import { Loading } from '../../components';
 import { Search } from '../components/search/search';
@@ -11,11 +10,8 @@ import { styles } from './styles';
 export const CharactersList = () => {
     const { link, img, text, header, headerText } = styles;
     const navigate = useNavigate();
-    const characters = useContext(CharactersContext);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const { data: characters, searchQuery, ...rest } = useContext(CharactersContext);
     const goToItem = (id) => navigate(`${id.toString()}`);
-    const nameStartsWithQuery = searchParams.get('nameStartsWith');
-    //console.log(characters)
 
     return (
         <View style={{ padding: 10 }}>
@@ -30,7 +26,7 @@ export const CharactersList = () => {
             {!characters || !Object.keys(characters).length ?
                 <Loading /> :
                 characters.total === 0 ?
-                    <NoResults text={nameStartsWithQuery} /> :
+                    <NoResults text={searchQuery} /> :
                     <ScrollView style={{ marginBottom: 90 }}>
                         {characters && characters.results.map(character => (
                             <TouchableOpacity
