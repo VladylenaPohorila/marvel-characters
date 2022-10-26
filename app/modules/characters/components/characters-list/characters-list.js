@@ -8,13 +8,13 @@ import { NoResults } from '../noResult';
 import { styles } from './styles';
 
 export const CharactersList = () => {
-    const { link, img, text, header, headerText } = styles;
+    const { link, img, text, header, headerText, headerWrapper, listWrapper } = styles;
     const navigate = useNavigate();
     const { data: characters, searchQuery, ...rest } = useContext(CharactersContext);
     const goToItem = (id) => navigate(`${id.toString()}`);
 
     return (
-        <View style={{ padding: 10 }}>
+        <View style={headerWrapper}>
             <View style={header}>
                 <View>
                     <Text style={headerText}>
@@ -27,7 +27,7 @@ export const CharactersList = () => {
                 <Loading /> :
                 characters.total === 0 ?
                     <NoResults text={searchQuery} /> :
-                    <ScrollView style={{ marginBottom: 120 }}>
+                    <ScrollView style={listWrapper}>
                         {characters && characters.results.map(character => (
                             <TouchableOpacity
                                 style={link}

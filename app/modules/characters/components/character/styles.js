@@ -2,6 +2,12 @@ import { StyleSheet } from 'react-native';
 import { marginNew } from '../../../../utilits/padding-marging';
 
 export const styles = StyleSheet.create({
+    itemWrapper: {
+        padding: 10
+    },
+    backImg: {
+        width: 30, height: 30
+    },
     container: {
         flex: 0,
         ...marginNew(0, 6, 90)

@@ -8,13 +8,15 @@ import { styles } from './styles';
 
 export const Character = () => {
     const { container,
+        itemWrapper,
         itemName,
         itemImg,
         itemDescription,
         colorText,
         containerModified,
         wrapperImg,
-        header } = styles;
+        header,
+        backImg } = styles;
     const { id: characterId } = useParams();
     const [character, setCharacter] = useState([]);
     const navigate = useNavigate();
@@ -33,12 +35,12 @@ export const Character = () => {
     }, [characterId])
 
     return (
-        <View style={{ padding: 10 }}>
+        <View style={itemWrapper}>
             <View style={header}>
                 <TouchableOpacity
                     onPress={() => goBack()}>
                     <Image source={require('../../../../../assets/back-white.png')}
-                        style={{ width: 30, height: 30 }} />
+                        style={backImg} />
                 </TouchableOpacity>
             </View>
             {!character || !Object.keys(character).length ?
