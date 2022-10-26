@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router';
 import { View } from 'react-native';
-import { CharactersContextProvider } from '../../context/useCharactersContext';
+import { useDebounce } from '../../hooks/useDebounce';
+import { BaseUrl, SearchUrl } from '../../utilits/getData';
 
 export const Characters = () => {
+    const [data, setData] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const searchWait = useDebounce(searchQuery, 300);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await fetch(searchWait ? SearchUrl(searchWait) : BaseUrl);
+                const data = await res.json();
+                setData(data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, [BaseUrl, searchWait]);
 
     return (
-        <CharactersContextProvider>
-            <View>
-                <Outlet />
-            </View>
-        </CharactersContextProvider>
+        <View>
+            <Outlet context={{ data, searchQuery, setSearchQuery }} />
+        </View>
     )
 }

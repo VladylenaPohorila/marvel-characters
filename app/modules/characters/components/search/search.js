@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, TextInput, Image } from 'react-native';
-import { CharactersContext } from '../../../../context/useCharactersContext';
+import { useOutletContext } from 'react-router';
 import { styles } from './styles';
 
 export const Search = () => {
     const { searchWrapper, searchInput } = styles;
-    const { searchQuery, setSearchQuery } = useContext(CharactersContext);
+    const { searchQuery, setSearchQuery } = useOutletContext();
 
     return (
         <View style={searchWrapper}>
