@@ -8,17 +8,6 @@ const generateCredentials = () => (
 export const BaseUrl = `${BASE_URL}characters?&${generateCredentials()}`;
 
 export const UrlCharacter = (id) => `${BASE_URL}characters/${id}?&${generateCredentials()}`;
+
 export const SearchUrl = query =>
     `${BASE_URL}characters?nameStartsWith=${query}&${generateCredentials()}`;
-
-
-export async function getCharacters() {
-    const res = await (await fetch(BaseUrl)).json();
-    return res.data;
-};
-
-export async function getCharacter(id) {
-    const res = await fetch(UrlCharacter(id));
-    const data = await res.json();
-    return data.data.results[0];
-};
