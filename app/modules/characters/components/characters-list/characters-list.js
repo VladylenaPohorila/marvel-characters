@@ -27,7 +27,7 @@ export const CharactersList = () => {
                 <Loading /> :
                 characters.total === 0 ?
                     <NoResults text={searchQuery} /> :
-                    <ScrollView style={{ marginBottom: 90 }}>
+                    <ScrollView style={{ marginBottom: 120 }}>
                         {characters && characters.results.map(character => (
                             <TouchableOpacity
                                 style={link}

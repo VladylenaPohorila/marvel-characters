@@ -4,7 +4,7 @@ import { marginNew } from '../../../../utilits/padding-marging';
 export const styles = StyleSheet.create({
     container: {
         flex: 0,
-        ...marginNew(0, 6, 80)
+        ...marginNew(0, 6, 90)
     },
     itemName: {
         ...marginNew(8, 0),

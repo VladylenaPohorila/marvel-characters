@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     listTitle: {
         fontSize: 20,
         textAlign: 'center',
-        color: 'white'
+        color: 'orange'
     },
     colorText: {
         fontSize: 18,
