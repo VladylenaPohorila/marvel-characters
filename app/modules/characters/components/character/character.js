@@ -37,7 +37,8 @@ export const Character = () => {
             <View style={header}>
                 <TouchableOpacity
                     onPress={() => goBack()}>
-                    <Text style={colorText}>Back</Text>
+                    <Image source={require('../../../../../assets/back-white.png')}
+                        style={{ width: 30, height: 30 }} />
                 </TouchableOpacity>
             </View>
             {!character || !Object.keys(character).length ?

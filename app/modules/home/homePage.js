@@ -16,7 +16,7 @@ export const Home = () => {
 						Welcome, to the Marvel world of characters
 					</Text>
 					<Link to='/characters'>
-						<Text style={link}>Go to all characters</Text>
+						<Text style={link}>Go to characters</Text>
 					</Link>
 				</View>
 			</ImageBackground>
