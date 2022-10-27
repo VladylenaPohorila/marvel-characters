@@ -7,15 +7,15 @@ import { styles } from './styles';
 
 
 export const Loader = () => {
-	const { container, wrapper } = styles;
+  const { container, wrapper } = styles;
 
-	return (
-		<View style={container}>
-			<View style={wrapper}>
-				<Outlet />
-			</View>
-			<FooterMenu />
-			<StatusBar style='auto' />
-		</View>
-	);
+  return (
+    <View style={container}>
+      <View style={wrapper}>
+        <Outlet />
+      </View>
+      <FooterMenu />
+      <StatusBar style='auto' />
+    </View>
+  );
 }
